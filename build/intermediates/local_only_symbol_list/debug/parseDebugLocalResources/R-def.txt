@@ -1,0 +1,16 @@
+R_DEF: Internal format may change without notice
+local
+drawable arrow_up_right_square
+drawable checkmark_circle
+drawable checkmark_square_fill
+drawable chevron_down
+drawable exclamationmark_circle
+drawable exclamationmark_triangle
+drawable eye
+drawable eye_slash
+drawable info_circle
+drawable person_fill
+drawable square
+drawable xmark_circle_fill
+font dm_sans_regular
+font epilogue_bold
