@@ -299,6 +299,12 @@ fun ColorDisk(name: String, color: Color) {
     }
 }
 
+@Composable
+@Preview
+fun MainPreview(){
+    Text(text = "Hello label")
+}
+
 
 
 

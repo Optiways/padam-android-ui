@@ -22,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -77,7 +78,7 @@ internal fun PUILabel(
         id?.let {
             Image(
                 modifier = Modifier
-                    .padding(top = if (style.fontFamily == Epilogue) 0.dp else topBaselinePadding / 2 )
+                    .padding(top = if (style.fontFamily == Epilogue) 0.dp else topBaselinePadding / 2)
                     .size(size = imageSize)
                 ,
                 painter = painterResource(id = it),
@@ -87,7 +88,7 @@ internal fun PUILabel(
         }
         BasicText(
             modifier = Modifier
-                .padding(top = if (style.fontFamily == Epilogue) topBaselinePadding / 2 else 1.dp )
+                .padding(top = if (style.fontFamily == Epilogue) topBaselinePadding / 2 else 1.dp)
                 .then(textModifier)
             ,
             text = text,
@@ -101,4 +102,10 @@ internal fun PUILabel(
             onTextLayout = ::updateMaxBaseline
         )
     }
+}
+
+@Composable
+@Preview
+fun PUILabelPreview(){
+    PUILabel(text = "Hello label")
 }
