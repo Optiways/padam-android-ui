@@ -68,6 +68,8 @@ import io.padam.android_ui.customer.styles.PUIPrimaryDark
 import io.padam.android_ui.customer.styles.PUIPrimaryLight
 import io.padam.android_ui.customer.styles.PUISpace1
 import io.padam.android_ui.customer.styles.PUISpace2
+import io.padam.android_ui.customer.styles.PUISpace4
+import io.padam.android_ui.customer.styles.PUISpace5
 import io.padam.android_ui.customer.styles.PUITextStyle
 import io.padam.android_ui.customer.styles.contrastedShadeColor
 import io.padam.android_ui.customer.styles.setBorder
@@ -85,163 +87,17 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             Column(
-                verticalArrangement = Arrangement.spacedBy(PUISpace2),
+                verticalArrangement = Arrangement.spacedBy(PUISpace4),
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .fillMaxSize()
-                    .fillMaxWidth()
+                    .padding(vertical = PUISpace5, horizontal = PUISpace3)
                     .verticalScroll(rememberScrollState())
 
             ) {
 
+                Labels()
                 TextFields()
-//                PadamUIElementTitle(text = "TextField")
-//
-//
-//
-//                var error: MutableState<PUIAlert?> = remember {
-//                    mutableStateOf(PUIAlert.Error(message = "Error errror erroor"))
-//                }
-//
-//
-//                val email = remember { mutableStateOf("") }
-//                val password = remember { mutableStateOf("") }
-//                val firstName = remember { mutableStateOf("Kiefer") }
-//
-//                Column(
-//                    modifier = Modifier.padding(20.dp),
-//                    verticalArrangement = Arrangement.spacedBy(PUISpace3)
-//                ) {
-//
-//                    PUIEmailField(
-//                        placeholder = "E-mail",
-//                        text = email,
-//                        alert = error
-//                    )
-//
-//                    PUISecureField(
-//                        placeholder = "Password",
-//                        text = password
-//                    )
-//
-//                    PUITextField(
-//                        id = R.drawable.person_fill,
-//                        placeholder = "Firstname",
-//                        text = firstName,
-//                        leadingItem = PUITextFieldItemConfiguration(id = R.drawable.arrow_up_right_square) {
-//                            Log.d("toto", "show country codses")
-//                        }
-//                    )
-//
-//                }
-//
-//
-//
-//
-//
-//                PadamUIElementTitle(text = "Dropdown")
-//
-//                //@State var selectedDay: WeekDay?
-//                val selectedDay = remember { mutableStateOf<WeekDay?>(null) }
-//
-//                PUIDropdown(placeholder = "Select a day", values = WeekDay.allCases, selected = selectedDay)
-//
-//                PadamUIElementTitle(text = "Theme")
-//
-//                Row(
-//                    modifier = Modifier
-//                        .padding(vertical = 40.dp)
-//                        .fillMaxWidth()
-//                    ,
-//                    horizontalArrangement = Arrangement.spacedBy(PUISpace3, alignment = Alignment.CenterHorizontally)
-//
-//                ) {
-//                    ColorDisk(name = "Primary", color = Color.PUIPrimary)
-//                    ColorDisk(name = "Light", color = Color.PUIPrimaryLight)
-//                    ColorDisk(name = "Dark", color = Color.PUIPrimaryDark)
-//                }
-//
-//
-//                // - Labels
-//
-//                PadamUIElementTitle(text = "Labels")
-//
-//                val labelImage = R.drawable.checkmark_circle
-//                PUILabel(id = labelImage, text = "Large Title", style = PUITextStyle.LargeTitle)
-//                PUILabel(id = labelImage, text = "Title 1", style = PUITextStyle.Title1)
-//                PUILabel(id = labelImage, text = "title 2", style = PUITextStyle.Title2)
-//                PUILabel(id = labelImage, text = "Title 3", style = PUITextStyle.Title3)
-//                PUILabel(id = labelImage, text = "Headline", style = PUITextStyle.Headline)
-//                PUILabel(id = labelImage, text = "Body", style = PUITextStyle.Body)
-//                PUILabel(id = labelImage, text = "Sub Headline", style = PUITextStyle.SubHeadline)
-//                PUILabel(id = labelImage, text = "Footnote", style = PUITextStyle.Footnote)
-//                PUILabel(id = labelImage, text = "Caption 1", style = PUITextStyle.Caption1)
-//                PUILabel(id = labelImage, text = "Caption 2", style = PUITextStyle.Caption2)
-//
-//
-//
-//                // - Panels
-//                PadamUIElementTitle(text = "Panels")
-//                PUIPanelError(text = "Error Error Error Error Error Error Error Error Error Error Error.")
-//                PUIPanelSuccess(text = "Success Success Success Success Success Success Success Success.")
-//                PUIPanelWarning(text = "Warning Warning Warning Warning Warning Warning Warning Warning.")
-//                PUIPanelInformation(text = "Info Info Info Info Info Info Info Info Info Info Info Info.")
-//
-//
-//                // - Checkbox
-//                PadamUIElementTitle(text = "Checkbox")
-//                PUICheckbox(isOn = isOn, text = "Text ".repeat(30))
-//
-//
-//                // - Buttons
-//
-//                val buttonImage = R.drawable.person_fill
-//                PadamUIElementTitle(text = "Buttons")
-//                PUIButton(
-//                    id = buttonImage,
-//                    title = "Filled Primary",
-//                    action = {},
-//                    appearance = PUIAppearance.filledPrimary(),
-//                    isEnabled = false
-//                )
-//
-//
-//                PUIButton(id = buttonImage, title = "Filled Primary Light", action = {}, appearance = PUIAppearance.filledPrimaryLight())
-//                PUIButton(id = buttonImage, title = "Outline", action = {}, appearance = PUIAppearance.plumpyBorder())
-//                PUIButton(id = buttonImage, title = "Outline Red", action = {}, appearance = PUIAppearance.plumpyBorder(Color.PUILabelRed), isEnabled = false)
-//                PUIButton(id = buttonImage, title = "Elevated", action = {}, appearance = PUIAppearance.elevated(PUIElevation.Prominent))
-//                PUIButton(id = buttonImage, title = "Plain", action = {}, appearance = PUIAppearance.plain(Color.PUILabelBlue))
-//
-//
-//
-//                // - Action Items
-//
-//                val actionItemImage = R.drawable.info_circle
-//                PadamUIElementTitle(text = "Action Items")
-//                PUIActionItem(id = actionItemImage, action = {}, appearance = PUIAppearance.filledPrimary())
-//                PUIActionItem(id = actionItemImage, action = {}, appearance = PUIAppearance.elevated(PUIElevation.Prominent, tintColor = Color.PUILabelBlue))
-//                PUIActionItem(id = actionItemImage, action = {}, appearance = PUIAppearance.slightBorder())
-//
-//
-//
-//                // - Links
-//
-//                PadamUIElementTitle(text = "Links")
-//                PUILinkWeb(text = "Web link Web link Web link ", action = {})
-//                PUILinkInApp(text = "In App Link In App Link In App Link ", action = {})
-//
-//                PUILink(text = "Hello World", isWebLink = false) {
-//                    Log.i("PadamKit", "Hello World")
-//                }
-//
-//
-//
-//
-//
-//
-//
-//
-
-
+                DropDown()
             }
         }
     }
@@ -249,19 +105,7 @@ class MainActivity : ComponentActivity() {
 
 }
 
-data class WeekDay(override val description: String): PUIDropdownSelectable {
-    companion object {
-        val Monday = WeekDay("Monday")
-        val Tuesday = WeekDay("Tuesday")
-        val Wednesday = WeekDay("Wednesday")
-        val Thursday = WeekDay("Thursday")
-        val Friday = WeekDay("Friday")
-        val Saturday = WeekDay("Saturday")
-        val Sunday = WeekDay("Sunday")
 
-        val allCases: List<WeekDay> = listOf(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
-    }
-}
 
 @Composable
 fun PadamUIElementTitle(text: String) {
